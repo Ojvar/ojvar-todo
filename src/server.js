@@ -4,23 +4,15 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
-/**
- * Index page
- */
-app.get("/", (req, res, next) => {
-  res.sendFile(path.resolve("views/index.html"));
-});
+app.set("view engine", "pug");
+// app.set("views", path.resolve("views"));
 
-/**
- * Handle undefined routes
- */
-app.use((req, res, next) => {
-  res.sendFile(path.resolve("views/errors/404.html"));
-});
+/* Define routes */
+app.use(require("./routes"));
 
 /* Start Listening */
 app.listen(ServerConfig.PORT, () => {
-  console.log(
-    "Server is initalized and listening on port " + ServerConfig.PORT
-  );
+    console.log(
+        "Server is initalized and listening on port " + ServerConfig.PORT,
+    );
 });
