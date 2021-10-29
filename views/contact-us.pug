@@ -1,4 +1,22 @@
 extends ./master.pug
 
 block content
-    h1 Contact us
+    div
+        p !{message}
+        p !{comment}
+
+    form#contactForm(action="#" method="post")
+        .form-group
+            label(for='emailInput') Email address
+            input#emailInput.form-control.form-control-lg(name="email" type='email' aria-describedby='emailHelp' placeholder='Enter email' required)
+            small#emailHelp.form-text.text-muted
+                | We'll never share your email with anyone else.
+
+        .form-group.my-2
+            label(for='commentInput') Comment
+            textarea#commentInput.form-control.form-control-lg(name="comment" rows="5" placeholder='Comment' required)
+
+        button.btn.btn-primary.btn-lg(type='submit') Send
+            
+        script(src="/resources/scripts/axios.js")
+        script(src="/resources/scripts/contact-us.js")

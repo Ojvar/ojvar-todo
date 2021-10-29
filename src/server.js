@@ -4,8 +4,20 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
+/* Statics */
+app.use("/resources", express.static(path.resolve("resource")));
+
+/* Template engine */
 app.set("view engine", "pug");
 // app.set("views", path.resolve("views"));
+
+/* Setup */
+app.use(express.json());
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
 
 /* Define routes */
 app.use(require("./routes"));
