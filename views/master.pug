@@ -12,6 +12,8 @@ html(lang='en')
     link(href='/resources/css/master.css' rel='stylesheet')
 
     block styles
+
+    script(defer src="/resources/scripts/library/vue.min.js")
     block scripts
 
   body
@@ -25,7 +27,7 @@ html(lang='en')
         a.p-2.text-dark(href='/contact-us') Contact us
       //- a.btn.btn-outline-primary(href='#') Sign up
 
-    .container
+    #app.container
       block content
 
     block scripts-inline
