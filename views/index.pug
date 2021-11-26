@@ -13,60 +13,18 @@ block content
     .p-3.text-center
         h1 Hello !{username}
 
-    form#loginForm
-        div
-            .input-group.mb-3
-                .input-group-prepend
-                    span#basic-addon3.input-group-text Your email
-                input#username.form-control(type='text' aria-describedby='basic-addon3' placeholder="john@doe.com")
-        div
-            .input-group.mb-3
-                .input-group-prepend
-                    span#basic-addon3.input-group-text Password
-                input#pwd.form-control(type='password' aria-describedby='basic-addon3' placeholder="12345")
-        div#loading.hidden
-            h1 LOADING
-        div#buttons.visible
-            input.btn.btn-primary(type="submit" value="Login")
+    div
+      input#titleInput
+      input#publisherInput
+      button.btn.btn-primary(onclick="addRow()") Add row
+
+    table#resultTable.table
+      thead
+        tr
+          th
+          th Title
+          th Publisher
+      tbody
 
 block scripts
-    script.
-        function checkData() {
-            const username = document.querySelector("#username").value;
-            const password = document.querySelector("#pwd").value;
-            (username === "admin" && password === "admin")
-                ? alert("Welcome to Ojvar TODO")
-                : alert("Invalid username/password");
-        }
-
-        function loadingMode(isLoading){
-            document.querySelector("#username").disabled = isLoading;
-            document.querySelector("#pwd").disabled = isLoading;
-            if (isLoading){
-                document.querySelector("#buttons").classList.remove("hidden");
-                document.querySelector("#loading").classList.add("visible");
-                document.querySelector("#buttons").classList.remove("visible");
-                document.querySelector("#buttons").classList.add("hidden");
-            }
-            else {
-                document.querySelector("#loading").classList.remove("visible");
-                document.querySelector("#loading").classList.add("hidden");
-                document.querySelector("#buttons").classList.remove("hidden");
-                document.querySelector("#buttons").classList.add("visible");
-            }
-        }
-
-        function onSubmit(e){
-            e.preventDefault();
-
-            loadingMode(true);
-            setTimeout(() => {
-                checkData();
-                loadingMode(false);
-            }, 1000);
-        }
-
-        // Preparation
-        document.querySelector("#loginForm").addEventListener('submit', onSubmit);
-        loadingMode(false);
-
+  script(src="/resources/scripts/index.js")
