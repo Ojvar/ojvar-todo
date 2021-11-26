@@ -1,22 +1,18 @@
 function handlerFunc(e) {
-    e.preventDefault();
-
-    const emailInput = document.getElementById("emailInput");
-    const commentInput = document.getElementById("commentInput");
-    const data = {
-        email: emailInput.value,
-        comment: commentInput.value,
-    };
-
-    console.log("Before send");
-    axios
-        .post("/contact-us", data)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.error(err));
-    console.log("After send");
-
-    return false;
+  e.preventDefault();
+  axios
+    .post('/contact-us', getFormData('contactForm'))
+    .then((res) => console.log(res.data))
+    .catch((err) => console.error(err));
 }
 
-const form = document.getElementById("contactForm");
-form.addEventListener("submit", handlerFunc);
+document.querySelector('#contactForm').addEventListener('submit', handlerFunc);
+document.querySelector('#setFormDataButton').addEventListener('click', () => {
+  setFormData('contactForm', {
+    firstName: 'Mohammad',
+    lastName: 'Ojvar',
+    gender: 'male',
+    email: 'mohammad@ojvar.dev',
+    comment: 'This is default comment text, very good guys',
+  });
+});

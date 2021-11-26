@@ -1,22 +1,42 @@
 extends ./master.pug
 
 block content
-    div
-        p !{message}
-        p !{comment}
+  div
+    p !{message}
+    p !{comment}
 
-    form#contactForm(action="#" method="post")
-        .form-group
-            label(for='emailInput') Email address
-            input#emailInput.form-control.form-control-lg(name="email" type='email' aria-describedby='emailHelp' placeholder='Enter email' required)
-            small#emailHelp.form-text.text-muted
-                | We'll never share your email with anyone else.
+  div
+    #setFormDataButton.btn.btn-primary Set defaults
 
-        .form-group.my-2
-            label(for='commentInput') Comment
-            textarea#commentInput.form-control.form-control-lg(name="comment" rows="5" placeholder='Comment' required)
+  form#contactForm(action="#" method="post")
+    .form-group
+      label(for='firstNameInput') First name
+      input#firstNameInput.form-control.form-control-lg(name="firstName" placeholder='First name' required)
 
-        button.btn.btn-primary.btn-lg(type='submit') Send
-            
-        script(src="/resources/scripts/axios.js")
-        script(src="/resources/scripts/contact-us.js")
+    .form-group
+      label(for='lastNameInput') Last name
+      input#lastNameInput.form-control.form-control-lg(name="lastName" placeholder='Last name' required)
+
+    .form-group
+      label(for='genderSelect') Gender
+      select#genderSelect.form-control(name="gender")
+        option(value="unselected" selected) None
+        option(value="male") Male
+        option(value="female") Female
+
+    .form-group
+      label(for='emailInput') Email address
+      input#emailInput.form-control.form-control-lg(name="email" type='email' aria-describedby='emailHelp' placeholder='Enter email' required)
+      small#emailHelp.form-text.text-muted
+        | We'll never share your email with anyone else.
+
+    .form-group.my-2
+      label(for='commentInput') Comment
+      textarea#commentInput.form-control.form-control-lg(name="comment" rows="5" placeholder='Comment' required)
+
+    button.btn.btn-primary.btn-lg(type='submit') Send
+
+block scripts
+  script(defer src="/resources/scripts/axios.js")
+  script(defer src="/resources/scripts/library/form.helper.js")
+  script(defer src="/resources/scripts/contact-us.js")

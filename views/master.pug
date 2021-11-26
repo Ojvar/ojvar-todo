@@ -1,30 +1,31 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset='utf-8')
-        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description' content='')
-        meta(name='author' content='')
-        link(rel='icon' href='/docs/4.0/assets/img/favicons/favicon.ico')
-        title ToDo App
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    link(rel='icon' href='/docs/4.0/assets/img/favicons/favicon.ico')
+    title ToDo App
 
-        link(href="/resources/css/bootstrap.min.css" rel="stylesheet")
-        link(href='/resources/css/master.css' rel='stylesheet')
+    link(href="/resources/css/bootstrap.min.css" rel="stylesheet")
+    link(href='/resources/css/master.css' rel='stylesheet')
 
-        block styles
-
-    body
-        .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
-            h5.my-0.mr-md-auto.font-weight-normal 
-                img.logo-img(src="resources/images/logo.png")
-                | Ojvar Coroporation
-            nav.my-2.my-md-0.mr-md-3
-                a.p-2.text-dark(href='/') Home
-                a.p-2.text-dark(href='/about') About
-                a.p-2.text-dark(href='/contact-us') Contact us
-            //- a.btn.btn-outline-primary(href='#') Sign up
-
-        .container
-            block content
-
+    block styles
     block scripts
+
+  body
+    .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+      h5.my-0.mr-md-auto.font-weight-normal
+        img.logo-img(src="resources/images/logo.png")
+        | Ojvar Coroporation
+      nav.my-2.my-md-0.mr-md-3
+        a.p-2.text-dark(href='/') Home
+        a.p-2.text-dark(href='/about') About
+        a.p-2.text-dark(href='/contact-us') Contact us
+      //- a.btn.btn-outline-primary(href='#') Sign up
+
+    .container
+      block content
+
+    block scripts-inline
