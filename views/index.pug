@@ -3,10 +3,46 @@ extends ./master.pug
 //- block styles
 
 block content
-  pre {{ $data }}
+  .container(v-show="isLoading")
+    h1 Loading...
 
-  h1 Hello world
+  .container(v-show="!isLoading")
+    .container
+      input#uncompletedTasksCheckBox(type="checkbox" v-model="showAllTasks")
+      label(for="uncompletedTasksCheckBox") Show all
+
+    table.table
+      thead 
+        tr
+          th 
+          th Title
+          th Description
+          th Completed
+          th Priority
+      tbody
+        tr(v-for="(item, index) in filteredTasks")
+          th &nbsp;
+          th {{ item.title }}
+          th {{ item.description }}
+          th 
+            .form-check
+              label.form-check-label {{ item.completed ? 'Done' : 'To do' }}
+          th {{ item.priority }}
+
+    .container
+      form
+        .mb-3
+          label.form-label Title
+          input.form-control(type='text' v-model="newTask.title")
+        .mb-3
+          label.form-label Description
+          input.form-control(type='text' v-model="newTask.description")
+        .mb-3
+          label.form-label Priority
+          input.form-control(type='number' v-model.number="newTask.priority")
+        button.btn.btn-primary(type='submit' @click.prevent="postNewTask") Insert
+
 
 block scripts
-  //- script(defer src="/resources/scripts/axios.js")
+  script(defer src="/resources/scripts/axios.js")
   script(defer src="/resources/scripts/index.js")

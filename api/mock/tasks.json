@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Drink milk",
+    "description": "-",
+    "completed": true,
+    "priority": 1
+  },
+  {
+    "id": 2,
+    "title": "Clean the room",
+    "description": "-",
+    "completed": false,
+    "priority": 1
+  },
+  {
+    "id": 3,
+    "title": "Take a shower",
+    "description": "-",
+    "completed": false,
+    "priority": 1
+  }
+]
