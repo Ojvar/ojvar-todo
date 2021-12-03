@@ -1,38 +1,12 @@
 extends ./master.pug
 
-block styles
-  style.
-    .hidden {
-      display: none;
-    }
-    .visible {
-      display: unset;
-    }
+//- block styles
 
 block content
-  .p-3.text-center
-    h1 Hello !{username}
+  pre {{ $data }}
 
-  div
-    input(v-model="newRow.title")
-    input(v-model="newRow.publisher")
-    button.btn.btn-primary(@click="addNewRow") New Row
-
-  table.table
-    thead
-      tr
-        th
-        th Title
-        th Publisher
-    tbody
-      tr(v-if="rows.length === 0")
-        td(rowspan="3") NO DATA
-      tr(v-else v-for="row in rows" :key="row.title")
-        td
-          button.btn.btn-danger(@click="deleteRow(row)") Delete
-        td {{ row.title }}
-        td {{ row.publisher }}
+  h1 Hello world
 
 block scripts
-  script(defer src="/resources/scripts/axios.js")
+  //- script(defer src="/resources/scripts/axios.js")
   script(defer src="/resources/scripts/index.js")

@@ -1,32 +1,13 @@
 new Vue({
-  el: '#app',
+  el: "#app",
 
   data() {
     return {
-      rows: [],
-      newRow: { title: null, publisher: null },
+      todoList: [
+        { id: 1, title: 'Drink milk', completed: false },
+        { id: 2, title: 'Clean the room', completed: false },
+        { id: 3, title: 'Take a shower', completed: false },
+      ],
     };
-  },
-
-  beforeMount() {
-    this.loadData();
-  },
-
-  methods: {
-    loadData() {
-      axios
-        .get('/api/v1/books')
-        .then((res) => (this.rows = res.data))
-        .catch(() => alert('LOAD DATA FAILED!'));
-    },
-    deleteRow(row) {
-      if (confirm('Are you sure to delete?')) {
-        this.rows = this.rows.filter((x) => x !== row);
-      }
-    },
-    addNewRow() {
-      this.rows.push(this.newRow);
-      this.newRow = { title: null, publisher: null };
-    },
   },
 });
