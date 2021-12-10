@@ -35,10 +35,9 @@ block content
                 .badge.bg-primary
                   label(v-for="tag in item.tags" :key="tag") {{ tag }}
 
-        label
-          input(type="checkbox" v-model="showAllTasks")
-          | Show all
-
+        .form-check
+          input#showAllTasks.form-check-input(type="checkbox" v-model="showAllTasks")
+          label.form-check-label(for="showAllTasks") Show all
 
     //- Register Form
     .container(v-show="state === 'register'")
