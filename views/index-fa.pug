@@ -37,14 +37,13 @@ block content
 
         label
           input(type="checkbox" v-model="showAllTasks")
-          | Show all
-
+          | نمایش همه
 
     //- Register Form
     .container(v-show="state === 'register'")
       form
         .mb-5.text-center
-          h2 New task
+          h2 وظیفه جدید
         .mb-3
           label.form-label Title
           input.form-control(type='text' v-model="newTask.title")
@@ -54,9 +53,8 @@ block content
         .mb-3
           label.form-label Priority
           input.form-control(type='number' v-model.number="newTask.priority")
-        button.btn.btn-primary(type='submit' @click.prevent="postNewTask") Save
-        button.btn.btn-danger(type='button' @click.prevent="setStateList") Cancel
-
+        button.btn.btn-primary(type='submit' @click.prevent="postNewTask") ذخیره
+        button.btn.btn-danger(type='button' @click.prevent="setStateList") انصراف
 
 block scripts
   script(defer src="/resources/scripts/axios.js")

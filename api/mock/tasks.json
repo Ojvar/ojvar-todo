@@ -1,23 +1,26 @@
 [
   {
-    "id": 1,
+    "id": "4c148b40-919e-4521-8f79-3b8c743c53d0",
     "title": "Drink milk",
     "description": "-",
     "completed": true,
-    "priority": 1
+    "priority": 1,
+    "tags": ["health"]
   },
   {
-    "id": 2,
+    "id": "4c148b40-919e-4521-8f79-3b8c743c53d1",
     "title": "Clean the room",
     "description": "-",
     "completed": false,
-    "priority": 1
+    "priority": 1,
+    "tags": ["daily"]
   },
   {
-    "id": 3,
+    "id": "4c148b40-919e-4521-8f79-3b8c743c53d2",
     "title": "Take a shower",
     "description": "-",
     "completed": false,
-    "priority": 1
+    "priority": 1,
+    "tags": ["health"]
   }
 ]
